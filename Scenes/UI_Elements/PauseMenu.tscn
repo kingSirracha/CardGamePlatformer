@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="PauseMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.560784, 0.690196, 0.611765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

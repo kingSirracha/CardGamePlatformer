@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Cards/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Cards/Block.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/CardScripts/CardSelect.gd" type="Script" id=3]
+
+[node name="CardSelect" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Block" parent="." instance=ExtResource( 2 )]
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+margin_left = 144.0
+margin_right = 284.0
+
+[node name="Block2" parent="." instance=ExtResource( 2 )]
+margin_left = 288.0
+margin_right = 428.0

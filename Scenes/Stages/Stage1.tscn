@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Tilesets/ActualTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Tilesets/Platforms.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Stage1.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GoalPost.tscn" type="PackedScene" id=4]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 15.0011, 15.3402, 0.465553, 15.3402, 7.83021, 0.0294952 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "Platforms.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Stage1" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 524293, 0, 131078, 524294, 0, 196612, 524295, 0, 196612, 524296, 0, 196612, 524297, 0, 196612, 524298, 0, 196612, 524299, 0, 196612, 524300, 0, 196612, 524301, 0, 196612, 524302, 0, 196612, 524303, 0, 131079, 589829, 0, 196614, 589830, 0, 131077, 589831, 0, 131073, 589832, 0, 65543, 589833, 0, 65543, 589834, 0, 65543, 589835, 0, 65543, 589836, 0, 65543, 589837, 0, 131072, 589838, 0, 131077, 589839, 0, 196615, 655367, 0, 196614, 655368, 0, 131073, 655369, 0, 65543, 655370, 0, 65543, 655371, 0, 65543, 655372, 0, 131072, 655373, 0, 196615, 720904, 0, 196614, 720905, 0, 131073, 720906, 0, 65543, 720907, 0, 131072, 720908, 0, 196615, 786441, 0, 196614, 786442, 0, 131077, 786443, 0, 196615 )
+
+[node name="Spikes" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="TileMap" type="TileMap" parent="Spikes"]
+scale = Vector2( 3, 3 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_use_parent = true
+format = 1
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 497, 361 )
+
+[node name="GoalPost" parent="." instance=ExtResource( 4 )]
+position = Vector2( 741, 384 )
+
+[connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
+[connection signal="body_entered" from="GoalPost" to="." method="_on_GoalPost_body_entered"]

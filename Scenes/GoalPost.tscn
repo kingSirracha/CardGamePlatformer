@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 37 )
+
+[node name="GoalPost" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -37 )
+shape = SubResource( 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -11.0
+margin_top = -77.0
+margin_right = 11.0
+color = Color( 0.0980392, 0.0588235, 0.164706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -8.0
+margin_top = -74.0
+margin_right = 8.0
+color = Color( 0.752941, 0.94902, 0.533333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
